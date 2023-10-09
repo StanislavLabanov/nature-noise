@@ -1,0 +1,84 @@
+@font-face {
+   font-family: 'Roboto';
+   src: url('../../public/fonts/Roboto-Black.ttf')
+}
+
+body {
+   font-family: 'Roboto', sans-serif;
+   padding: 0;
+   margin: 0;
+
+   .wrapper {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      width: 100%;
+      height: 100vh;
+      background: no-repeat center/cover url('../../public/assets/summer-bg.jpg');
+
+      .container {
+         position: relative;
+         z-index: 3;
+         width: 40%;
+
+         h1 {
+            text-align: center;
+            font-size: 50px;
+            font-weight: 700;
+            color: #ff6600;
+         }
+
+         .buttons {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            button {
+               width: 31%;
+               border-radius: 20px;
+               height: 180px;
+               border: 2px solid #dddddd;
+               cursor: pointer;
+
+               img {
+                  width: 40px;
+                  height: 40px;
+               }
+            }
+
+            button.summer {
+               background: no-repeat center/cover url('../../public/assets/summer-bg.jpg');
+            }
+
+            button.rain {
+               background: no-repeat center/cover url('../../public/assets/rainy-bg.jpg');
+            }
+
+            button.winter {
+               background: no-repeat center/cover url('../../public/assets/winter-bg.jpg');
+            }
+         }
+
+         .range_block {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 50px;
+         }
+      }
+   }
+
+   .wrapper:after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, .4);
+      z-index: 2;
+      width: 100%;
+      height: 100%;
+   }
+}
