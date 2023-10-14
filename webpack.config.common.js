@@ -7,11 +7,14 @@ const distFolder = path.resolve(__dirname, 'dist')
 
 module.exports = {
    context: path.resolve(__dirname, 'src'),
-   entry: './js/index.js',
+   entry: './js/index.ts',
    output: {
       filename: '[contenthash].bundle.js',
       path: distFolder,
       clean: true
+   },
+   resolve: {
+      extensions: ['.tsx', '.ts', '.js', '.jsx'],
    },
    plugins: [
       new HtmlWebpackPlugin({
@@ -56,6 +59,11 @@ module.exports = {
          {
             test: /\.html$/i,
             loader: "html-loader",
+         },
+         {
+            test: /\.[tj]sx?$/,
+            use: 'ts-loader',
+            exclude: /node_modules/,
          }
       ],
    },

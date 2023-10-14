@@ -2,14 +2,15 @@ import { audios, wrapper, range } from '../const'
 import type_hendler from './type_hendler'
 import change_hendler from './change_hendler'
 
-const click_hendler = (button) => {
-   wrapper.style.background = `no-repeat center/cover url(${type_hendler(button.className)})`
+const click_hendler = (button: HTMLButtonElement): void => {
+   if (wrapper) wrapper.style.background = `no-repeat center/cover url(${type_hendler(button.className)})`
 
    audios.forEach(audio => {
       if (audio.className === button.className) {
          if (audio.paused) {
             audio.play()
-            audio.volume = range.value / 100
+            if (range) audio.volume = +range.value / 100
+
             change_hendler(audio)
          } else {
             audio.pause()
